@@ -1,15 +1,56 @@
-# Basic Sample Hardhat Project
+## On-chain Escrow Service
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+![Header](/screenshots/esqrow.png)
 
-Try running some of the following tasks:
+To run the project locally, follow these steps.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+1. Clone the project locally and install the dependencies:
+
 ```
+git clone git@github.com:burdianov/etb-esqrow.git
+
+# hardhat
+cd etb-esqrow
+npm install
+
+# frontend
+cd frontend
+npm install
+```
+
+2. Start the local Hardhat node
+
+```
+npx hardhat node
+```
+
+3. While in the root directory, with the network running, deploy the contract to the local network in a separate terminal window
+
+```
+npx hardhat run scripts/deploy.js --network localhost
+```
+
+4. Copy the contract address from the terminal and assign it to the VITE_CONTRACT_ADDRESS environment variable in the .env file inside frontend directory
+
+5. Configure .env file inside the root directory:
+
+```
+ALCHEMY_KEY=https://eth-rinkeby.alchemyapi.io/v2/your-alchemy-key
+PRIVATE_KEY=your-rinkeby-private-key
+```
+
+6. Inside frontend directory, launch the project
+
+```
+npm run dev
+```
+
+### How to use the app
+
+Note: The contract is deployed to Rinkeby network.
+
+1. Register as a Seller
+
+2. Switch accounts and register as a Buyer
+
+3. Being still in the Buyer role, create an Escrow.
