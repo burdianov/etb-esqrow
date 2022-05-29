@@ -7,8 +7,11 @@ const getContract = () =>
   new Promise(async (resolve, reject) => {
     let provider = await detectEthereumProvider();
     if (provider) {
+      // @ts-ignore
       await provider.request({ method: 'eth_requestAccounts' });
+      // @ts-ignore
       provider = new ethers.providers.Web3Provider(provider);
+      // @ts-ignore
       const signer = provider.getSigner();
 
       const escrowContract = new Contract(

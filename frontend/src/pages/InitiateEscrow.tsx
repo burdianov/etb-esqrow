@@ -14,7 +14,6 @@ import Button from '../components/Button';
 import { DateType } from '../components/NumberInput';
 import NumberInput from '../components/NumberInput';
 import { commissionState } from './../recoil/atoms';
-import et from 'date-fns/esm/locale/et/index.js';
 
 const initialState = {
   seller: '',
@@ -46,6 +45,7 @@ function InitiateEscrow() {
     }
   }, [loading, account]);
 
+  // @ts-ignore
   const handleOnChange = (e) => {
     setEscrow({
       ...escrow,

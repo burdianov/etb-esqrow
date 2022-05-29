@@ -42,11 +42,13 @@ function EscrowDetails() {
   };
 
   const handleWithdrawValue = () => {
+    // @ts-ignore
     if (escrow.seller?.toLowerCase() === account.toLowerCase()) {
       if (id) {
         sellerWithdraw(id);
       }
     }
+    // @ts-ignore
     if (escrow.buyer?.toLowerCase() === account.toLowerCase()) {
       if (id) {
         buyerWithdraw(id);
@@ -65,28 +67,52 @@ function EscrowDetails() {
             <div className='mt-2'>
               <label className='w-full font-thin'>ID</label>
               <p className='w-full font-semibold'>
-                {BigNumber.from(escrow.id).toString()}
+                {
+                  // @ts-ignore
+                  BigNumber.from(escrow.id).toString()
+                }
               </p>
             </div>
             <div className='mt-4'>
               <label className='w-full font-thin'>
                 Seller{' '}
-                {escrow.seller?.toLowerCase() === account.toLowerCase() &&
-                  '(me)'}
+                {
+                  // @ts-ignore
+                  escrow.seller?.toLowerCase() === account.toLowerCase() &&
+                    '(me)'
+                }
               </label>
-              <p className='w-full font-semibold'>{escrow.seller}</p>
+              <p className='w-full font-semibold'>
+                {
+                  // @ts-ignore
+                  escrow.seller
+                }
+              </p>
             </div>
             <div className='mt-4'>
               <label className='w-full font-thin'>
                 Buyer{' '}
-                {escrow.buyer.toLowerCase() === account.toLowerCase() && '(me)'}
+                {
+                  // @ts-ignore
+                  escrow.buyer.toLowerCase() === account.toLowerCase() && '(me)'
+                }
               </label>
-              <p className='w-full font-semibold'>{escrow.buyer}</p>
+              <p className='w-full font-semibold'>
+                {
+                  // @ts-ignore
+                  escrow.buyer
+                }
+              </p>
             </div>
             <div className='mt-4'>
               <label className='w-full font-thin'>Value</label>
               <p className='w-full font-semibold'>
-                {utils.formatEther(BigNumber.from(escrow.value).toString())}
+                {utils.formatEther(
+                  BigNumber.from(
+                    // @ts-ignore
+                    escrow.value
+                  ).toString()
+                )}
               </p>
             </div>
             <div className='mt-4'>
@@ -95,7 +121,12 @@ function EscrowDetails() {
                 {format(
                   new Date(
                     fromUnixTime(
-                      parseInt(BigNumber.from(escrow.expiryTime).toString())
+                      parseInt(
+                        BigNumber.from(
+                          // @ts-ignore
+                          escrow.expiryTime
+                        ).toString()
+                      )
                     )
                   ),
                   'dd-MMM-yyyy'
@@ -105,7 +136,10 @@ function EscrowDetails() {
             <div className='mt-4'>
               <label className='w-full font-thin'>Status</label>
               <p className='w-full font-semibold'>
-                {getStatus(escrow.status.toString())}
+                {
+                  // @ts-ignore
+                  getStatus(escrow.status.toString())
+                }
               </p>
             </div>
             <div className='flex mt-4 pt-4 border-t-[1px] justify-around'>
@@ -115,7 +149,9 @@ function EscrowDetails() {
                 className='py-2 px-4 flex justify-center items-center bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg disabled:bg-green-400 disabled:cursor-not-allowed'
                 disabled={
                   deliveryLoading ||
+                  // @ts-ignore
                   escrow.buyer.toLowerCase() !== account.toLowerCase() ||
+                  // @ts-ignore
                   escrow.status.toString() !==
                     EscrowStatus.AWAITING_DELIVERY.toString()
                 }
@@ -128,10 +164,14 @@ function EscrowDetails() {
                 onClick={handleWithdrawValue}
                 className='py-2 px-4 flex justify-center items-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg disabled:bg-blue-400 disabled:cursor-not-allowed'
                 disabled={
+                  // @ts-ignore
                   (escrow.buyer.toLowerCase() === account.toLowerCase() &&
+                    // @ts-ignore
                     escrow.status.toString() !==
                       EscrowStatus.AWAITING_DELIVERY.toString()) ||
+                  // @ts-ignore
                   (escrow.seller.toLowerCase() === account.toLowerCase() &&
+                    // @ts-ignore
                     escrow.status.toString() !==
                       EscrowStatus.DELIVERED.toString())
                 }

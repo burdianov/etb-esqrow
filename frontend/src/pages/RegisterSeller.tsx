@@ -23,6 +23,7 @@ function RegisterSeller() {
     }
   }, [loading]);
 
+  // @ts-ignore
   const handleOnChange = (e) => {
     setSeller({ ...seller, [e.target.name]: e.target.value });
   };

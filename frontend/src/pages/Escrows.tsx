@@ -13,6 +13,7 @@ function Escrows() {
 
   useEffect(() => {
     const init = async () => {
+      // @ts-ignore
       await getEscrowsByBuyer(account);
     };
     if (account) {

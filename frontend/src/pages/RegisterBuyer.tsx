@@ -1,6 +1,6 @@
 import { SyntheticEvent, useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,6 +23,7 @@ function RegisterBuyer() {
     }
   }, [loading]);
 
+  // @ts-ignore
   const handleOnChange = (e) => {
     setBuyer({ ...buyer, [e.target.name]: e.target.value });
   };

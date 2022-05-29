@@ -44,18 +44,21 @@ function useContractActions() {
   );
 
   const getAllSellers = async () => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
     const sellers = await escrowContract.getAllSellers();
     setSellers(sellers);
   };
 
   const getAllBuyers = async () => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
     const buyers = await escrowContract.getAllBuyers();
     setBuyers(buyers);
   };
 
   const registerSeller = async (name: string, email: string) => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
     const tx = await escrowContract.registerSeller(name, email);
 
@@ -72,6 +75,7 @@ function useContractActions() {
   };
 
   const registerBuyer = async (name: string, email: string) => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
     const tx = await escrowContract.registerBuyer(name, email);
 
@@ -92,6 +96,7 @@ function useContractActions() {
     expiryTime: number,
     value: number
   ) => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
     const tx = await escrowContract.initiateEscrow(seller, expiryTime, {
       value: utils.parseEther(value.toString())
@@ -105,17 +110,19 @@ function useContractActions() {
       autoClose: 1000,
       type: 'success'
     });
-
+    // @ts-ignore
     await getEscrowsByBuyer(account);
   };
 
   const getEscrowsByBuyer = async (buyer: string) => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
     const escrows = await escrowContract.getEscrowsByBuyer(buyer);
     setEscrows(escrows);
   };
 
   const getCommission = async () => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
 
     const commission = await escrowContract.commission();
@@ -123,6 +130,7 @@ function useContractActions() {
   };
 
   const getEscrowById = async (escrowId: string) => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
 
     const escrow = await escrowContract.getEscrowById(escrowId);
@@ -130,6 +138,7 @@ function useContractActions() {
   };
 
   const confirmDelivery = async (escrowId: string) => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
 
     const tx = await escrowContract.confirmDelivery(escrowId);
@@ -143,6 +152,7 @@ function useContractActions() {
   };
 
   const buyerWithdraw = async (escrowId: string) => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
 
     const tx = await escrowContract.buyerWithdraw(escrowId);
@@ -156,6 +166,7 @@ function useContractActions() {
   };
 
   const sellerWithdraw = async (escrowId: string) => {
+    // @ts-ignore
     const { escrowContract } = await getContract();
 
     const tx = await escrowContract.sellerWithdraw(escrowId);

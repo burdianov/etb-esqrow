@@ -92,6 +92,7 @@ function EscrowsTable() {
                               target='_blank'
                             >
                               {escrow.buyer.toLowerCase() ===
+                              // @ts-ignore
                               account.toLowerCase()
                                 ? escrow.seller
                                 : escrow.buyer}
@@ -123,7 +124,9 @@ function EscrowsTable() {
                     </td>
                     <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                       <p className='text-gray-900 whitespace-no-wrap'>
-                        {escrow.buyer.toLowerCase() === account.toLowerCase()
+                        {escrow.buyer.toLowerCase() ===
+                        // @ts-ignore
+                        account.toLowerCase()
                           ? 'Buyer'
                           : 'Seller'}
                       </p>
