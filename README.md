@@ -63,7 +63,7 @@ https://rinkeby.etherscan.io/address/0xEe21CD5d318a6634f840d6F64B4dc6f2ad9DB492
 
 4. etc...
 
-### Libraries:
+### Technology:
 
 - hardhat
 - solidity
