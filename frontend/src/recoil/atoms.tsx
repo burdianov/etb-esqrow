@@ -64,11 +64,6 @@ export const accountState = atom({
   default: null
 });
 
-export const chainIdState = atom({
-  key: 'chainIdState',
-  default: null
-});
-
 export const escrowsState = atom({
   key: 'escrowsState',
   default: [] as Escrow[]

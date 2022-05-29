@@ -4,11 +4,10 @@ import { useRecoilState } from 'recoil';
 
 import Escrow from '../artifacts/contracts/EscrowAgency.sol/EscrowAgency.json';
 
-import { accountState, chainIdState } from '../recoil/atoms';
+import { accountState } from '../recoil/atoms';
 
 function useEthereum() {
   const [account, setAccount] = useRecoilState(accountState);
-  const [chainId, setChainId] = useRecoilState(chainIdState);
 
   const connectWallet = async () => {
     try {

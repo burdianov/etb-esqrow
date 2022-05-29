@@ -48,23 +48,3 @@ export const inArray = (address: string, collection: Seller[] | Buyer[]) => {
 
   return found;
 };
-
-export const chainIdToNetwork = (chainId: number) => {
-  let network = '';
-
-  console.log({ chainId });
-
-  switch (chainId) {
-    case 31337:
-      network = 'Hardhat';
-      break;
-    case 4:
-      network = 'Rinkeby';
-      break;
-    default:
-      network = 'Switch to Rinkeby';
-      break;
-  }
-
-  return network;
-};
