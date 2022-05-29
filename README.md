@@ -48,6 +48,7 @@ npm run dev
 ### How to use the app
 
 Note: The contract is deployed to Rinkeby network.
+Address: 0xEe21CD5d318a6634f840d6F64B4dc6f2ad9DB492
 
 1. Register as a Seller
 
