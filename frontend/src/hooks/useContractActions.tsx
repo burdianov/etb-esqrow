@@ -121,6 +121,13 @@ function useContractActions() {
     setEscrows(escrows);
   };
 
+  const getEscrowsBySeller = async (seller: string) => {
+    // @ts-ignore
+    const { escrowContract } = await getContract();
+    const escrows = await escrowContract.getEscrowsByBuyer(seller);
+    setEscrows(escrows);
+  };
+
   const getCommission = async () => {
     // @ts-ignore
     const { escrowContract } = await getContract();
@@ -186,6 +193,7 @@ function useContractActions() {
     registerBuyer,
     initiateEscrow,
     getEscrowsByBuyer,
+    getEscrowsBySeller,
     getCommission,
     getEscrowById,
     confirmDelivery,

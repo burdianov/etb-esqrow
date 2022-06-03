@@ -79,7 +79,7 @@ function SellersTable() {
                     <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                       <p className='text-gray-900 whitespace-no-wrap'>
                         <CopyToClipboard text={seller.id}>
-                          <button className='p-2 rounded-full active:bg-indigo-200 transition duration-400'>
+                          <button className='p-2 rounded-full active:bg-indigo-200 transition duration-600'>
                             <IoMdCopy />
                           </button>
                         </CopyToClipboard>
